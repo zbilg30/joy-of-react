@@ -1,5 +1,5 @@
 import './App.css'
-import Wordle from './components/Wordle'
+import {Wordle} from './components/Wordle'
 
 function App() {
   return (

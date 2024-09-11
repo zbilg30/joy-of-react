@@ -13,3 +13,31 @@ html,
     height: 100vh;
     width: 100%;
 }
+
+.grid {
+    flex: 1 1 auto;
+}
+
+.cell {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    display: inline-block;
+    margin: 4px;
+    padding: 6px;
+    font-size: 40px;
+    font-weight: bold;
+    perspective: 1000px;
+}
+
+.button {
+    text-transform: uppercase;
+    padding: 15px;
+    margin: 3px;
+    border-radius: 5px;
+    height: 60px;
+    border: none;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+}
