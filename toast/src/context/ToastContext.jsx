@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 const ToastContext = createContext();
 
@@ -6,17 +6,15 @@ export const ToastProvider = ({ children }) => {
   const [toasts, setToasts] = useState([]);
 
   const addToast = ({ message, variant }) => {
-    setToasts([...toasts, { message, variant }]);
+    const id = Math.random();
+    const tmp = [...toasts, { message, variant, id }];
+    setToasts(tmp);
+
+    setTimeout(() => {
+      setToasts((prevToasts) => prevToasts.filter((toast) => toast.id !== id));
+    }, 5000);
   };
-  useEffect(() => {
-    if (toasts.length > 0) {
-      setTimeout(() => {
-        const tmp = [...toasts];
-        tmp.shift();
-        setToasts(tmp);
-      }, 1000);
-    }
-  }, [toasts]);
+
   return (
     <ToastContext.Provider value={{ toasts, addToast }}>
       {children}
