@@ -14,9 +14,11 @@ export const ToastProvider = ({ children }) => {
       setToasts((prevToasts) => prevToasts.filter((toast) => toast.id !== id));
     }, 5000);
   };
+
   const removeToast = (id) => {
     setToasts((prev) => prev.filter((item) => item.id !== id));
   };
+
   return (
     <ToastContext.Provider value={{ toasts, addToast, removeToast }}>
       {children}
